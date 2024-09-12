@@ -53,23 +53,33 @@ You do it by declaring the rows as arrays and its buttons as values, like this:
 rows:
   power_row:
     - power
-  media_control_row:
-    - rewind
-    - play
-    - pause
-    - fast_forward
+  media_control_row: true
   volume_row: slider
   numpad_row: true
   navigation_row: touchpad
 ```
 
-The preset rows are `volume_row`, `numpad_row` and `navigation_row`, which requires a string or boolean as value.
+The preset rows are `volume_row`, `numpad_row`, `navigation_row`, and `media_control_row`, which can optionally be set as string or boolean values:
 
 | Name | Type | Description
 | ---- | ---- | -------
 | volume_row | string | Can be either `slider` or `buttons`. This defines the mode you want for setting the volume (you'll see them soon below). You need to have [slider-card](https://github.com/AnthonMS/my-cards) installed in order to use `slider`.
 | numpad_row | boolean | If `true`, numpad row will show.
 | navigation_row | string | Can be either `touchpad` or `buttons`. This defines the mode you want for navigating around your tv (you'll also see them soon below).
+| media_control_row | boolean | If `true`, media control row will show.
+
+Preset rows can also be overridden by declaring them as arrays.
+The following example is equivalent to `media_control_row: true`:
+
+```yaml
+rows:
+  ...
+  media_control_row:
+    - rewind
+    - play
+    - pause
+    - fast_forward
+```
 
 ## **Notice**
 
@@ -336,7 +346,7 @@ Result:
 
 ### Extra
 
-In any row, if you add an ampty item, there will be an empty/invisible button filling the space:
+In any row, if you add an empty item, there will be an empty/invisible button filling the space:
 
 ```yaml
 rows:
